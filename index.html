@@ -1,178 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mahek Khatoon | Teacher Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --main-bg: #f5f5f7;
-      --accent: #0071e3;
-      --dark: #1d1d1f;
-      --text: #333;
-      --font: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahek Khatoon - Educator Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+        body {
+            background-color: #f8f9fa;
+            color: #1c2526;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    body {
-      font-family: var(--font);
-      background: var(--main-bg);
-      color: var(--dark);
-      line-height: 1.6;
-      padding: 2rem;
-    }
+        header {
+            background: linear-gradient(135deg, #6b7280, #3b82f6);
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-      animation: fadeInDown 1.5s ease;
-    }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            animation: fadeInUp 0.8s ease-out;
+        }
 
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      color: var(--dark);
-    }
+        .contact-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
 
-    header p {
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    section {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      animation: fadeInUp 1.5s ease;
-      transition: transform 0.3s;
-    }
+        .contact-info a:hover {
+            color: #60a5fa;
+        }
 
-    section:hover {
-      transform: translateY(-5px);
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
 
-    h2 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
+        section {
+            background: #ffffff;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideIn 0.6s ease-out forwards;
+        }
 
-    ul {
-      padding-left: 1.5rem;
-    }
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
 
-    li {
-      margin-bottom: 0.75rem;
-    }
+        h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
 
-    .contact {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 1rem;
-      color: var(--text);
-    }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
 
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+        ul {
+            list-style: none;
+        }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        li {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        li:hover {
+            transform: translateX(5px);
+        }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 1.2rem;
+        }
 
-      header h1 {
-        font-size: 2rem;
-      }
+        .experience-item {
+            margin-bottom: 2rem;
+        }
 
-      section {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+        .experience-item h3 {
+            color: #1f2937;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill {
+            background: #eff6ff;
+            color: #1f2937;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #dbeafe;
+        }
+
+        .skill:hover {
+            background: #3b82f6;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        footer {
+            background: #1f2937;
+            color: #d1d5db;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Mahek Khatoon</h1>
+        <div class="contact-info">
+            <p>Chicago, Illinois, 60645</p>
+            <p>773-899-2609</p>
+            <p><a href="mailto:Khatoonmahek@gmail.com">Khatoonmahek@gmail.com</a></p>
+        </div>
+    </header>
 
-  <header>
-    <h1>Mahek Khatoon</h1>
-    <p>Educator | Chicago, IL</p>
-  </header>
+    <div class="container">
+        <section id="objective">
+            <h2>Objective</h2>
+            <p>To build a long-term career as an educator in a position that provides opportunities for growth in critical thinking and creativity while keeping up with the 21st century.</p>
+        </section>
 
-  <section>
-    <h2>Objective</h2>
-    <p>To build a long-term career as an educator in a position that provides opportunities for growth in critical thinking and creativity while keeping up with the 21st century.</p>
-  </section>
+        <section id="education">
+            <h2>Education & Certification</h2>
+            <div class="experience-item">
+                <h3>Northeastern Illinois University</h3>
+                <p class="date">August 2018 - May 2022</p>
+                <ul>
+                    <li>Elementary Education, B.A.</li>
+                    <li>Graduation: May 13, 2022</li>
+                    <li>Professional Educator License</li>
+                    <li>Intention to get ESL and Social Studies Endorsement within the first 2-4 years of employment in education</li>
+                </ul>
+            </div>
+        </section>
 
-  <section>
-    <h2>Education & Certification</h2>
-    <ul>
-      <li>B.A. in Elementary Education, Northeastern Illinois University (2018 - 2022)</li>
-      <li>Graduation: May 13, 2022</li>
-      <li>Professional Educator License</li>
-      <li>Intent to get ESL and Social Studies Endorsement within 2-4 years</li>
-    </ul>
-  </section>
+        <section id="experience">
+            <h2>Field Experience</h2>
+            <div class="experience-item">
+                <h3>6th Grade Reading Language Arts Teacher</h3>
+                <p class="date">Old Orchard Junior High School, Skokie, Illinois, January 9, 2023 - June 7, 2023</p>
+                <ul>
+                    <li>Coordinated and executed lesson and unit plans while providing strategies, resources, and materials to ensure student success and growth with Reading team</li>
+                    <li>Collaboration with Special Education Team to attend an IEP meeting to discuss student goals and progress with parent</li>
+                    <li>Introduction to Standard Based Grading, Learner Qualities, Canvas, Powerschool, Pearson Review 360, Reader’s & Writer’s Workshop, and LiveSchool</li>
+                    <li>Proctor for the IAR and MAP Spring Testing</li>
+                    <li>Full access to a Personal Mentor as well as an Instructional Coach</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>5th Grade Long Term Substitute</h3>
+                <p class="date">West Ridge Elementary School, Chicago, Illinois, September 2022 - October 2022</p>
+                <ul>
+                    <li>Thoroughly planned for Math and Social Studies differentiated instruction for learners of all types</li>
+                    <li>Introduction to “Go Math” and access to create student-centered Social Studies content with supplements provided by other teachers</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Substitute Teacher</h3>
+                <p class="date">Chicago Public Schools, September 2022 - October 2022</p>
+                <ul>
+                    <li>Substituted for all different grade levels in schools with lots of diversity, different learners, and differentiated instruction</li>
+                </ul>
+            </div>
+        </section>
 
-  <section>
-    <h2>Field Experience & Employment</h2>
-    <ul>
-      <li><strong>6th Grade RLA Teacher</strong>, Old Orchard Junior High (Jan 2023 - Jun 2023)</li>
-      <li><strong>5th Grade Long-Term Sub</strong>, West Ridge Elementary (Sep 2022 - Oct 2022)</li>
-      <li><strong>Substitute Teacher</strong>, Chicago Public Schools (Sep 2022 - Oct 2022)</li>
-    </ul>
-  </section>
+        <section id="leadership">
+            <h2>Leadership & Volunteer Activities</h2>
+            <div class="experience-item">
+                <h3>Teachers Assistant</h3>
+                <p class="date">Mahdavia Islamic Center of Chicago, Chicago, Illinois, January 2019</p>
+                <ul>
+                    <li>Assisted with Sunday School at Mosque</li>
+                    <li>Created and executed activities for students of different ages</li>
+                    <li>Developed lesson plans and provided handouts for student reference</li>
+                </ul>
+            </div>
+        </section>
 
-  <section>
-    <h2>Leadership & Volunteer</h2>
-    <p>Teacher’s Assistant at Mahdavia Islamic Center – Led Sunday School lessons, activities, and handouts for students of various age groups.</p>
-  </section>
+        <section id="skills">
+            <h2>Skills & Languages</h2>
+            <div class="skills-grid">
+                <div class="skill">Extrovert</div>
+                <div class="skill">Experimental</div>
+                <div class="skill">Hardworking</div>
+                <div class="skill">Facilitator</div>
+                <div class="skill">Reflective</div>
+                <div class="skill">Leader</div>
+                <div class="skill">Charismatic</div>
+                <div class="skill">Empathetic</div>
+                <div class="skill">Professional</div>
+                <div class="skill">Learner</div>
+                <div class="skill">Tech Savvy</div>
+                <div class="skill">Urdu</div>
+                <div class="skill">English</div>
+            </div>
+            <p style="margin-top: 1.5rem;">Tech Proficiencies: Google Docs, Google Slides, Google Sites, Google Sheets, Microsoft Word, Canvas, PowerSchool, LiveSchool</p>
+        </section>
+    </div>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Empathetic, Reflective, Experimental, Tech-Savvy</li>
-      <li>Google Suite, Canvas, PowerSchool, LiveSchool</li>
-      <li>Languages: Urdu & English</li>
-    </ul>
-  </section>
-
-  <div class="contact">
-    <p>📍 Chicago, IL | 📧 <a href="mailto:Khatoonmahek@gmail.com">Khatoonmahek@gmail.com</a> | 📞 111-111-1111</p>
-  </div>
-
+    <footer>
+        <p>© 2025 Mahek Khatoon. All rights reserved.</p>
+    </footer>
 </body>
 </html>
